@@ -1,4 +1,5 @@
---LDP QUERY CR174, QUERY 1 REWRITTEN FOR METADB
+--LDP TO METADB
+--CR174, QUERY 1 
 --BD/ILL loans and renewals counts of items loaned BY CUL to others (CUL is LENDER)
 
 WITH parameters AS (
