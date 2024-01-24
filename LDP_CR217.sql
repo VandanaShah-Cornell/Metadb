@@ -99,7 +99,7 @@ format_final AS
                 
                 WHERE (ii.discovery_suppress = 'False' OR ii.discovery_suppress IS NULL OR ii.discovery_suppress IS NOT TRUE) 
               --AND (he.discovery_suppress IS NOT TRUE OR he.discovery_suppress IS NULL OR he.discovery_suppress ='FALSE')
-				AND (he.discovery_suppress = 'false' OR he.discovery_suppress IS NULL) -- IN the metadb DERIVED TABLE 'holdings_ext', the discovery_supress column is a text values column and not a boolean values COLUMN, so cannot use 'IS NOT TRUE'. 
+		AND (he.discovery_suppress != 'true') -- IN the metadb DERIVED TABLE 'holdings_ext', the discovery_supress column is a text values column and not a boolean values COLUMN, so cannot use 'IS NOT TRUE'. 
                 AND he.permanent_location_name = 'serv,remo'
 )
 
