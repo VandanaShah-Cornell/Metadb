@@ -69,7 +69,7 @@ holdings AS
 AND he.call_number NOT ILIKE ALL(ARRAY['on order%', 'in process%', 'Available for the library to purchase', 
  'On selector%', '%film%','%fiche%', '%micro%', '%vault%']) 
 --AND (he.discovery_suppress IS NOT TRUE OR he.discovery_suppress IS NULL OR he.discovery_suppress ='FALSE')
-AND (he.discovery_suppress = 'false' OR he.discovery_suppress IS NULL) -- IN the metadb DERIVED TABLE 'holdings_ext', the discovery_supress column is a text values column and not a boolean values COLUMN, so cannot use 'IS NOT TRUE'. 
+AND (he.discovery_suppress != 'true') -- IN the metadb DERIVED TABLE 'holdings_ext', the discovery_supress column is a text values column and not a boolean values COLUMN, so cannot use 'IS NOT TRUE'. 
 AND he.permanent_location_name IS NOT NULL
 AND ie.title NOT ILIKE '%[microform]%' 
 
