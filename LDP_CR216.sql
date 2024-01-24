@@ -23,7 +23,7 @@ candidates AS
                 OR (he.call_number similar to '%(Film|Fiche|Micro|film|fiche|micro)%')
        			OR (ie.title ilike '%[microform%]'))
                 --AND (he.discovery_suppress IS NOT TRUE OR he.discovery_suppress IS NULL OR he.discovery_suppress ='FALSE')
-		AND (he.discovery_suppress = 'false' OR he.discovery_suppress IS NULL) -- IN the metadb DERIVED TABLE 'holdings_ext', the discovery_supress column is a text values column and not a boolean values COLUMN, so cannot use 'IS NOT TRUE'. 
+		AND (he.discovery_suppress != 'true') -- IN the metadb DERIVED TABLE 'holdings_ext', the discovery_supress column is a text values column and not a boolean values COLUMN, so cannot use 'IS NOT TRUE'. 
                 AND (ie.discovery_suppress IS NOT TRUE OR ie.discovery_suppress IS NULL OR ie.discovery_suppress ='FALSE')
                 
  /*Excludes serv,remo which are all e-materials and are counted in a separate query. Also excludes materials 
